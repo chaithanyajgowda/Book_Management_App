@@ -17,7 +17,7 @@ function EditBook() {
   useEffect(() => {
     async function fetchBook() {
       try {
-        const res = await axios.get(`/books/${id}`);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/books/${id}`);
         setForm({
           title: res.data.title || '',
           author: res.data.author || '',

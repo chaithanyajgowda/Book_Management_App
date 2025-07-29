@@ -10,7 +10,7 @@ const UserManagement = () => {
   try {
     const token = localStorage.getItem('token');
     console.log('Fetching users with token:', token);
-    const res = await axios.get('/users');
+    const res = await axios.get('${process.env.REACT_APP_API_URL}/api/users');
     console.log('Users fetched:', res.data);
     setUsers(res.data);
   } catch (err) {
@@ -21,7 +21,7 @@ const UserManagement = () => {
 const updateRole = async (id, newRole) => {
   try {
     const token = localStorage.getItem('token');
-    const res =  await axios.patch(`/users/${id}/role`,
+    const res =  await axios.patch(`${process.env.REACT_APP_API_URL}/api/users/${id}/role`,
       { role: newRole },
       { headers: { Authorization: `Bearer ${token}` } }
     );

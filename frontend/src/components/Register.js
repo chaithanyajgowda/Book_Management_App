@@ -12,7 +12,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/users/register', form);
+      await axios.post('${process.env.REACT_APP_API_URL}/api/users/register', form);
       navigate('/');
     } catch (err) {
       alert("Registration failed");
