@@ -1,0 +1,33 @@
+/* Light brown color (for button and text) */
+.text-brown {
+  color: #d18868;
+}
+
+.btn-brown {
+  background-color: #dd9474;
+  color: white;
+  border: none;
+}
+
+.btn-brown:hover {
+  background-color: #bb6b4f;
+}
+.custom-input {
+  height: 48px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  padding: 10px 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: #d18868 !important;  /* light brown border */
+  box-shadow: 0 0 0 0.2rem rgba(209, 136, 104, 0.25) !important; /* soft glow */
+  outline: none;
+}
+
+/* Peach background on the right card */
+.bg-peach {
+  background-color: #f5e0d3;
+}
