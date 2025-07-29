@@ -16,7 +16,7 @@ function AddBook() {
     formData.append('description', form.description);
     if (image) formData.append('image', image);
 
-    await axios.post('${process.env.REACT_APP_API_URL}/api/books', formData, {
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/books`, formData, {
       headers: { 'Content-Type': 'multipart/form-data' }
     });
 

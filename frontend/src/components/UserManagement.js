@@ -10,7 +10,7 @@ const UserManagement = () => {
   try {
     const token = localStorage.getItem('token');
     console.log('Fetching users with token:', token);
-    const res = await axios.get('${process.env.REACT_APP_API_URL}/api/users');
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/users`);
     console.log('Users fetched:', res.data);
     setUsers(res.data);
   } catch (err) {

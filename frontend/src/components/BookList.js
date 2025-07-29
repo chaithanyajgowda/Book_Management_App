@@ -14,7 +14,7 @@ function BookList() {
   useEffect(() => {
     async function fetchBooks() {
       try {
-        const res = await axios.get('${process.env.REACT_APP_API_URL}/api/books');
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/books`);
         console.log("📘 Books fetched:", res.data);
         setBooks(res.data);
       } catch (error) {
@@ -24,7 +24,7 @@ function BookList() {
 
     async function fetchRole() {
       try {
-        const res = await axios.get('${process.env.REACT_APP_API_URL}/api/users/me');
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/users/me`);
         console.log("👤 Role fetched:", res.data.role);
         setRole(res.data.role);
       } catch (error) {

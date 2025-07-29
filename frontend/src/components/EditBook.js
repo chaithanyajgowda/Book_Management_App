@@ -66,7 +66,7 @@ function EditBook() {
 
     const token = localStorage.getItem('token'); // ✅ get token from local storage
 
-    await axios.put(`/books/${id}`, formData, {
+    await axios.put(`${process.env.REACT_APP_API_URL}/api/books/${id}`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${token}`, // ✅ send token here
