@@ -4,7 +4,7 @@ import axios from '../axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 function BookList() {
-  console.log("📚 BookList component mounted");
+  console.log(" BookList component mounted");
   const location = useLocation();
   const [books, setBooks] = useState([]);
   const [role, setRole] = useState('');
@@ -15,20 +15,20 @@ function BookList() {
     async function fetchBooks() {
       try {
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/books`);
-        console.log("📘 Books fetched:", res.data);
+        console.log(" Books fetched:", res.data);
         setBooks(res.data);
       } catch (error) {
-        console.error("❌ Error fetching books:", error);
+        console.error(" Error fetching books:", error);
       }
     }
 
     async function fetchRole() {
       try {
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/users/me`);
-        console.log("👤 Role fetched:", res.data.role);
+        console.log(" Role fetched:", res.data.role);
         setRole(res.data.role);
       } catch (error) {
-        console.error("❌ Error fetching role:", error);
+        console.error(" Error fetching role:", error);
       }
     }
 
@@ -36,7 +36,7 @@ function BookList() {
   fetchBooks();
   fetchRole();
 }, [location.key]);
- // ✅ ensures it runs when returning to /book
+ 
 
 
   const handleDelete = async (id) => {
@@ -44,13 +44,13 @@ function BookList() {
       await axios.delete(`${process.env.REACT_APP_API_URL}/api/books/${id}`);
       setBooks(books.filter(book => book._id !== id));
     } catch (error) {
-      console.error("❌ Error deleting book:", error);
+      console.error(" Error deleting book:", error);
     }
   };
 
   // Optional fallback while loading
-  if (!role) return <p>🔄 Loading role...</p>;
-  if (!books.length) return <p>📭 No books found or still loading...</p>;
+  if (!role) return <p> Loading role...</p>;
+  if (!books.length) return <p> No books found or still loading...</p>;
 
   return (
    <div className="container my-5" style={{
